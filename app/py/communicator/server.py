@@ -7,6 +7,9 @@ class Python_Server(object):
     def echo(self, text):
         return text
 
+    def eliezer(self, text):
+        return text
+
 def port_number():
     port = 4242
     return '{}'.format(port)
