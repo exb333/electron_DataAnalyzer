@@ -19,10 +19,11 @@ function createWindow() {
     width: 800,
     height: 700,
     frame: false,
-    resizable: false,
+    resizable: true,
     icon: path.join(__dirname, 'app', 'img', 'Icon.ico')
   });
 
+  loginWindow.setResizable(false)
   loginWindow.webContents.openDevTools();
 
   loginWindow.loadURL(url.format({
@@ -31,9 +32,12 @@ function createWindow() {
     slashes: true
   }));
 
+
+
 };
 
 app.on('ready', createWindow)
+
 
 // python processes
 let python_server = 'server.py'

@@ -3,9 +3,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/login-style.css" />
+  <link rel="stylesheet" href="css/options.css" />
   <link rel="stylesheet" href="vendor/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/modal-form-login.css" />
+  <link rel="stylesheet" href="vendor/css/animate.css" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       </div>
       <div id="header-center">
         <p>
-          DataAnalyzer - User Login
+          DataAnalyzer - Choose Options
         </p>
       </div>
       <div id="header-right">
@@ -28,32 +28,13 @@
       </div>
     </div>
 
-    <!-- FORM -->
-    <div id="id01" class="modal">
-      <form class="modal-content animate">
-        <div class="imgcontainer">
-          <img src="img/user.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-          <label for="uname"><b>Datameer Username</b></label>
-          <input id ="uname" type="text" placeholder="Enter Datameer Username" \
-          name="uname" required \
-          oninvalid="this.setCustomValidity('Enter Value Here')" \
-          oninput="setCustomValidity('')">
-
-          <label for="psw"><b>Datameer Password</b></label>
-          <input id="pwd" type="password" placeholder="Enter Datameer Password" name="psw" required>
-
-          <label for="psw"><b>Oracle Password</b></label>
-          <input id ="orc_pwd" type="password" placeholder="Enter Oracle Password" name="psw" required>
-
-          <button id='modal-button' type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
-        </div>
-
-      </form>
+    <div class="selection">
+      <h1 class="head-title">So what you would like to do?</h1>
+      <button id="graphs" >Result-Graph</button>
+      <button id="columns" >Rename-Columns</button>
+      <button id="database">Sql Server --> Oracle</button>
     </div>
-
+<button id="back" onclick="history.back()">Go Back</button>
   </div>
   <script>
     window.$ = window.jQuery = require('jquery');
@@ -61,7 +42,6 @@
   <script type="text/javascript" src="js/window.js"></script>
   <!-- below script of nodejs communicating with python -->
   <script type="text/javascript" src="renderer/client.js"></script>
-  <script type="text/javascript" src="renderer/login.js"></script>
   <script>
     // When the user clicks anywhere outside of the modal, close it
     // window.onclick = function(event) {
@@ -69,8 +49,8 @@
     //         modal.style.display = "none";
     //     }
     // }
-    $("#max-btn").css("color", "#333")
-    
+$("#max-btn").css("color", "#333")
+$('#back').addClass('animated zoomIn');
   </script>
 
 </body>

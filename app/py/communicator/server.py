@@ -1,14 +1,15 @@
 import sys
 import zerorpc
 
+from DataAnalyzer.app.py.backend.request_handler import datameer_login
 
 class Python_Server(object):
 
     def echo(self, text):
         return text
 
-    def eliezer(self, text):
-        return text
+    def login(self, uname, pwd):
+        return datameer_login(uname, pwd)
 
 def port_number():
     port = 4242
