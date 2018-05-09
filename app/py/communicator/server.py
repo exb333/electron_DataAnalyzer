@@ -1,15 +1,25 @@
 import sys
 import zerorpc
 
-from DataAnalyzer.app.py.backend.request_handler import datameer_login
+from DataAnalyzer.app.py.backend.request_handler import DatameerHandler
+
 
 class Python_Server(object):
 
     def echo(self, text):
         return text
 
-    def login(self, uname, pwd):
-        return datameer_login(uname, pwd)
+    def login(self, uname, pwd, orcl_pwd):
+
+        self.d = DatameerHandler()
+        return self.d.datameer_login(uname, pwd, orcl_pwd)
+
+
+    def ray(self, id):
+
+        # lst = [i for i in range(100)]
+        # return lst
+        return self.d.getSheets(int(id))
 
 def port_number():
     port = 4242

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/options.css" />
+  <link rel="stylesheet" href="vendor/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="vendor/css/animate.css" />
+</head>
+
+<body>
+  <div id="container">
+
+    <!-- HEADER -->
+    <div id="header">
+      <div id='header-left'>
+        <img src="img/analytic-icon.png" alt="brand" />
+      </div>
+      <div id="header-center">
+        <p>
+          DataAnalyzer - Choose Options
+        </p>
+      </div>
+      <div id="header-right">
+        <button id="min-btn"><i class="fa fa-window-minimize" aria-hidden="true"></i></button>
+        <button disabled id="max-btn"><i class="fa fa-window-maximize" aria-hidden="true"></i></button>
+        <button id="close-btn"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <div class="selection">
+      <div class="bgrnd">
+        <i id ='bg-icon' class="fa fa-cogs" aria-hidden="true"></i>
+      </div>
+      <div class="head-title">
+        <h1 class="head-title">So what you would like to do?</h1>
+      </div>
+      <div class="btn-options">
+        <button class="mt" id="graphs" >Result-Graph</button>
+        <button class="mt" id="columns" >Rename-Columns</button>
+        <button class="mt" id="database">Sql Server --> Oracle</button>
+      </div>
+    </div>
+    <div class="footer">
+    </div>
+  </div>
+
+
+
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+  <script type="text/javascript" src="js/window.js"></script>
+  <!-- below script of nodejs communicating with python -->
+  <script type="text/javascript" src="renderer/client.js"></script>
+  <script type="text/javascript" src="renderer/options.js"></script>
+  <script>
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
+$("#max-btn").css("color", "#333")
+$('#back').addClass('animated pulse');
+  </script>
+
+</body>
+
+</html>
+
+<!-- action="https://github.com" -->
+<!-- <button id="back" onclick="history.back()">Go Back</button> -->

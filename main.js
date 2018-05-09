@@ -19,11 +19,11 @@ function createWindow() {
     width: 800,
     height: 700,
     frame: false,
-    resizable: true,
+    resizable: false,
     icon: path.join(__dirname, 'app', 'img', 'Icon.ico')
   });
 
-  loginWindow.setResizable(false)
+  // loginWindow.setResizable(false)
   loginWindow.webContents.openDevTools();
 
   loginWindow.loadURL(url.format({

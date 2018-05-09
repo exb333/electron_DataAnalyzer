@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/options.css" />
+  <link rel="stylesheet" href="css/workbook.css" />
   <link rel="stylesheet" href="vendor/css/font-awesome.min.css" />
   <link rel="stylesheet" href="vendor/css/animate.css" />
 </head>
@@ -18,7 +18,7 @@
       </div>
       <div id="header-center">
         <p>
-          DataAnalyzer - Choose Options
+          DataAnalyzer - Select Workbook
         </p>
       </div>
       <div id="header-right">
@@ -28,20 +28,42 @@
       </div>
     </div>
 
-    <div class="selection">
-      <h1 class="head-title">So what you would like to do?</h1>
-      <button id="graphs" >Result-Graph</button>
-      <button id="columns" >Rename-Columns</button>
-      <button id="database">Sql Server --> Oracle</button>
+    <div class="top">
+      <div class="heading">
+        <h3>Please select Workbook:</h3>
+      </div>
     </div>
-<button id="back" onclick="history.back()">Go Back</button>
+
+    <div class="data-form">
+      <label id=label for="uname"><b>Workbook ID</b></label>
+      <input id="sheet" type="text" placeholder="Enter Datameer Workbook ID" name="uname" required  oninvalid="this.setCustomValidity('Enter Value Here')"  oninput="setCustomValidity('')">
+
+
+      <label id=label for="psw"><b>Select: </b></label>
+      <button id="load">Load Workbooks</button>
+      <div id="workbook-sheets">
+          <ul>
+
+          </ul>
+      </div>
+
+      <div class="btns">
+        <button id="back" onclick="history.back()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+        <button id='next' type="submit">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+
+    </div>
+
+
   </div>
+
   <script>
     window.$ = window.jQuery = require('jquery');
   </script>
   <script type="text/javascript" src="js/window.js"></script>
   <!-- below script of nodejs communicating with python -->
   <script type="text/javascript" src="renderer/client.js"></script>
+  <script type="text/javascript" src="renderer/options.js"></script>
   <script>
     // When the user clicks anywhere outside of the modal, close it
     // window.onclick = function(event) {
@@ -49,8 +71,8 @@
     //         modal.style.display = "none";
     //     }
     // }
-$("#max-btn").css("color", "#333")
-$('#back').addClass('animated zoomIn');
+    $("#max-btn").css("color", "#333")
+    // $('#back').addClass('animated pulse');
   </script>
 
 </body>
@@ -58,3 +80,4 @@ $('#back').addClass('animated zoomIn');
 </html>
 
 <!-- action="https://github.com" -->
+<!-- <button id="back" onclick="history.back()">Go Back</button> -->
