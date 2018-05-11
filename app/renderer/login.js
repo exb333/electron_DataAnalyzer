@@ -10,16 +10,16 @@ function OptionWindowCreation(){
   let mainWindow = require('electron').remote.getCurrentWindow()
 
   let optionsWindow = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 700,
     frame: false,
-    icon: path.join(__dirname, 'img', 'Icon.ico')
+    icon: path.join(__dirname, 'img', 'Win_ico.ico')
   })
   optionsWindow.flashFrame(true)
   // top.maximize()
   optionsWindow.setResizable(false)
   optionsWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'options.html'),
+    pathname: path.join(__dirname, 'options-screen.html'),
     protocol: 'file:',
     slashes: true
   }))

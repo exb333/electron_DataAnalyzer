@@ -1,154 +1,40 @@
-#header {
-  /* below two lines are making our frameless window to drag and not the texts */
-  /* buttons should be set to non dragable, scroll at bottom*/
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
+.hero{
+  height: 500px;
 }
 
-/* buttons should be set to non dragable
-.titlebar-button {
-  -webkit-app-region: no-drag;
-} */
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  overflow: hidden;
+.heading{
+  font-size: 30px;
 }
 
-#container {
-  /* background-image:  url(../img/options.png); */
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 700px;
-}
-
-#header {
-  width: 100%;
-  height: 40px;
-  background-color: #262626;
-  box-shadow: 0px 4px 3px #8c8c8c;
-  z-index: 1;
-}
-
-#header-right {
-  padding: 10px;
-  float: right;
-}
-
-/* buttons should be set to non dragable */
-
-#header-right>button {
-  -webkit-app-region: no-drag;
-  color: white;
-  cursor: context-menu;
-  margin-left: 10px;
-  background: none;
-  border: none;
-  z-index: 3000;
-  /* position: fixed; */
-}
-
-#header-right>button:hover {
-  color: #999999;
-}
-
-#min-btn {
-  font-size: 10px;
-}
-
-#max-btn {
-  font-size: 12px;
-}
-
-#max-btn {
-  font-size: 12px;
-}
-
-#min-btn:focus, #max-btn:focus, #close-btn:focus {
-  outline: none;
-}
-
-#header-left {
-  padding: 5px;
-  width: 300px;
-  height: 200px;
-  margin: 0 auto;
-  float: left;
-}
-
-#header-left>img {
-  width: 30px;
-  height: auto;
-  margin: 0 auto;
-}
-
-img:hover {
-  filter: brightness(100%);
-}
-
-#header-center{
-  color: #ffffff;
-  float: left;
-}
-
-.selection{
-    position: absolute;
-    width: 100%;
-  /* margin-left: -5px; */
-}
-
-.head-title{
-  width: 100%;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.btn-options{
-  width: 100%;
-  height: 350px;
-  text-align: center;
-  padding-left: 250px;
-  padding-top: 60px;
-}
-
-.mt{
-  text-align: center;
-  font-weight: bold;
-  margin-top: 40px;
-  display: block;
+.card{
   width: 250px;
-  height: 50px;
-  background-color: white;
-  border: 1px solid #008ae6;
-  border-radius: 10px;
-  transition: background-color 1s, transform 1s;
+  min-height: 330px;
+  box-shadow: 2px 5px 10px #a6a6a6;
 }
 
-.mt:hover{
-  background-color:#008ae6;
-  transform: scale(1.2, 1.2);
+.title{
+  font-weight: bold;
 }
 
-.mt:focus{
-  outline: none;
+.para-bg{
+    height: 20px;
+    padding: 0;
+    margin-top: 42px;
 }
 
-.footer{
-  width:500%;
-  position: absolute;
-  height: 50px;
-  background-color: #333;
-  bottom:0;
-  box-shadow: 0px -4px 3px #8c8c8c;
+.button{
+  border-radius: 0;
 }
 
-.bgrnd{
-  position: absolute;
-  font-size: 180px;
-  margin-top: 280px;
-  margin-left: 550px;
-  opacity: 0.4;
+.card-footer-item{
+  padding: 0;
+  margin-top: -20px;
+}
+
+.card-1{
+  margin-top: -15px;
+}
+
+.card-2{
+  margin-top: -10px;
 }

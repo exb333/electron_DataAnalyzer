@@ -19,15 +19,15 @@ function createWindow() {
     width: 800,
     height: 700,
     frame: false,
-    resizable: false,
-    icon: path.join(__dirname, 'app', 'img', 'Icon.ico')
+    resizable: true,
+    icon: path.join(__dirname, 'app', 'img', 'Win_ico.ico')
   });
 
-  // loginWindow.setResizable(false)
+  loginWindow.setResizable(false)
   loginWindow.webContents.openDevTools();
 
   loginWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'app/login.html'),
+    pathname: path.join(__dirname, 'app/login-home.html'),
     protocol: 'file:',
     slashes: true
   }));

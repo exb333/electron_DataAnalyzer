@@ -1,5 +1,8 @@
 import requests
 import cx_Oracle
+from io import StringIO
+
+from .graph import loadTest
 
 # Always remember you are communicating through message. We are checking the Authentication based on message
 class DatameerHandler(object):
@@ -21,13 +24,11 @@ class DatameerHandler(object):
         if check_request.status_code != 200:
             message = "failure"
 
-
         else:
             self.dict_cred = {
                 "uname": uname,
                 "pwd" : pwd
             }
-
             message = "success"
 
         if message == "failure":
@@ -52,7 +53,6 @@ class DatameerHandler(object):
         return message
 
 
-
     def getSheets(self, id):
         uname = self.dict_cred['uname']
         pwd = self.dict_cred['pwd']
@@ -65,7 +65,16 @@ class DatameerHandler(object):
         return names
 
 
+    def get_data(self, id, sheetname):
+        uname = self.dict_cred['uname']
+        pwd = self.dict_cred['pwd']
+        r = requests.get('https://datameer.labcorp.com:8443/rest/data/workbook/%d/%s/download' % (int(id), sheetname), auth=(uname, pwd), verify=False)
+        if r.status_code != 200:
+            raise IOError('Request failed')
+        return loadTest(r.text)
 
 
 
-# def oracle_login(uname, pwd, orcl_pwd):
+
+
+# asdfasdf

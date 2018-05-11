@@ -1,0 +1,105 @@
+/* // window frame */
+
+html{
+  overflow-y: hidden;
+}
+
+/* below two lines are making our frameless window to drag and not the texts */
+/* buttons should be set to non dragable, scroll at bottom*/
+.nav-background{
+  background-color: #ffdd57;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.mt:hover{
+  background-color: #ffdd57;
+  cursor: context-menu;
+}
+
+.ic{
+  color: #333;
+  margin-right: 5px;
+  -webkit-app-region: no-drag; /* buttons should be set to non dragable */
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.ic:hover{
+  background-color: #333;
+  color: #f2f2f2
+}
+
+.title{
+  margin-right: 80px;
+  margin-top: 10px;
+  font-size:16px;
+}
+
+.my-form{
+  text-align: center;
+  width: 60%;
+}
+
+.imgCont{
+  width: 30%;
+  height: 130px;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+
+.avatar{
+  box-shadow: 0px 2px 20px #333;
+  border-radius: 50%;
+}
+
+.field{
+  margin-top: 30px;
+}
+
+.btn{
+  width: 30%;
+  margin: 0 auto;
+}
+
+.button{
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button:focus{
+  box-shadow: 0px 0px 10px #333;
+}
+
+.footer{
+  margin-top:60px;
+}
+
+.footer > .container{
+  margin-top:-30px;
+}
+
+
+/* Animation */
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}

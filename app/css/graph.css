@@ -1,0 +1,19 @@
+.cont-pad{
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 2px solid black;
+}
+
+.columns{
+
+}
+
+.upper{
+  height:650px;
+    border: 2px solid red;
+}
+
+.lower{
+    border: 2px solid green;
+    height: 320px;
+}

@@ -14,7 +14,7 @@ const {BrowserWindow} = require('electron').remote
          if(window.isMaximized()){
              window.unmaximize();
          }else{
-             window.maximize();
+            window.maximize();
          }
      });
 

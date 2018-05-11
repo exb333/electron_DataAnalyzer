@@ -10,16 +10,15 @@ class Python_Server(object):
         return text
 
     def login(self, uname, pwd, orcl_pwd):
-
         self.d = DatameerHandler()
         return self.d.datameer_login(uname, pwd, orcl_pwd)
 
-
-    def ray(self, id):
-
-        # lst = [i for i in range(100)]
-        # return lst
+    def sheets(self, id):
         return self.d.getSheets(int(id))
+
+    def data(self, id, sheetname):
+        return self.d.get_data(id, sheetname)
+
 
 def port_number():
     port = 4242
