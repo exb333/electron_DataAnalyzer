@@ -1,20 +1,26 @@
+import numpy as np
 import pandas as pd
+from io import StringIO
+
+from .oracleDb_handler import Database_Handler
 
 
-def loadTest(txt):
+def loadTest(test_str, uname, orcl_pwd):
 		# load data
-        df = pd.read_csv(StringIO(txt), header=0, dtype={'test_number':str,'result':str,'Count':np.int64})
+        tests = {}
+        df = pd.read_csv(StringIO(test_str), header=0, dtype={'test_number':str,'result':str,'Count':np.int64})
         test_numbers = df.test_number.unique().tolist()
 
         # keep data for efficiency
         # self.data = df
         # self.range_data = None
+        db = Database_Handler()
+        test_names = db.test_name_fetcher(test_numbers, uname, orcl_pwd)
 
-        # test_names = OracleDb.testName_fetcher(test_number = test_numbers)
+        for i in range(len(test_numbers)):
+            tests[test_numbers[i]] = str(test_names[i]).strip()
 
-        return test_numbers
-
-
+        return tests
 
 		# self.nameListWidget.clear()
 		# for i in lst:

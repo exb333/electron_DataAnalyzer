@@ -1,15 +1,14 @@
 import requests
-import cx_Oracle
-from io import StringIO
 
 from .graph import loadTest
+from .oracleDb_handler import Database_Handler
 
 # Always remember you are communicating through message. We are checking the Authentication based on message
 class DatameerHandler(object):
 
     def __init__(self):
         self.dict_cred = {}
-
+        self.Db = Database_Handler()
 
     def datameer_login(self, uname, pwd, orcl_pwd):
 
@@ -27,7 +26,8 @@ class DatameerHandler(object):
         else:
             self.dict_cred = {
                 "uname": uname,
-                "pwd" : pwd
+                "pwd" : pwd,
+                "orcl_pwd": orcl_pwd
             }
             message = "success"
 
@@ -35,22 +35,10 @@ class DatameerHandler(object):
             return ("Check your Datameer Credentials")
 
         else:
-            if self.check_db_credentials(uname, orcl_pwd) == "success":
+            if self.Db.check_db_credentials(uname, orcl_pwd) == "success":
                 return "Login Successful"
             else:
                 return "Check Your Oracle Password"
-
-
-    def check_db_credentials(self, uname, orcl_pwd):
-        message = '' # this step is important
-        try:
-            dsn = "bnxa2dbadm01.labcorp.com:1522/lcadwp1.labcorp.com"
-            conn = cx_Oracle.connect(str(uname), str(orcl_pwd), dsn=dsn)
-            message =  "success"
-        except cx_Oracle.DatabaseError as e:
-            message =  str(e)
-
-        return message
 
 
     def getSheets(self, id):
@@ -68,10 +56,11 @@ class DatameerHandler(object):
     def get_data(self, id, sheetname):
         uname = self.dict_cred['uname']
         pwd = self.dict_cred['pwd']
+        orcl_pwd = self.dict_cred['orcl_pwd']
         r = requests.get('https://datameer.labcorp.com:8443/rest/data/workbook/%d/%s/download' % (int(id), sheetname), auth=(uname, pwd), verify=False)
         if r.status_code != 200:
             raise IOError('Request failed')
-        return loadTest(r.text)
+        return loadTest(r.text, uname, orcl_pwd)
 
 
 

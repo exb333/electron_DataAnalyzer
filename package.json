@@ -15,6 +15,7 @@
   "author": "Elis",
   "license": "MIT",
   "dependencies": {
+    "electron-window": "^0.8.1",
     "jquery": "^3.3.1",
     "zerorpc": "git+https://github.com/exb333/zerorpc-node.git"
   },
