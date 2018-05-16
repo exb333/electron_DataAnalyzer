@@ -1,6 +1,6 @@
 import requests
 
-from .graph import loadTest
+from .graph import TestAnalysis
 from .oracleDb_handler import Database_Handler
 
 # Always remember you are communicating through message. We are checking the Authentication based on message
@@ -9,6 +9,7 @@ class DatameerHandler(object):
     def __init__(self):
         self.dict_cred = {}
         self.Db = Database_Handler()
+        self.TA = TestAnalysis()
 
     def datameer_login(self, uname, pwd, orcl_pwd):
 
@@ -60,7 +61,7 @@ class DatameerHandler(object):
         r = requests.get('https://datameer.labcorp.com:8443/rest/data/workbook/%d/%s/download' % (int(id), sheetname), auth=(uname, pwd), verify=False)
         if r.status_code != 200:
             raise IOError('Request failed')
-        return loadTest(r.text, uname, orcl_pwd)
+        return self.TA.loadTest(r.text, uname, orcl_pwd)
 
 
 

@@ -1,11 +1,14 @@
 // graph window creation:
-const {dialog, app} = require('electron').remote
+const {
+  dialog,
+  app
+} = require('electron').remote
 const url = require('url')
 const path = require('path')
 
 var result = null;
 
-function GraphWindowCreation(){
+function GraphWindowCreation() {
 
   // getting mainWindow from main.js
   // let mainWindow = require('electron').remote.getCurrentWindow()
@@ -25,27 +28,30 @@ function GraphWindowCreation(){
     protocol: 'file:',
     slashes: true,
   }))
-    graphWindow.webContents.openDevTools();
-    graphWindow.webContents.on('did-finish-load', () => {
+  graphWindow.webContents.openDevTools();
+
+  // Below two lines are sending our result to graph.js
+  graphWindow.webContents.on('did-finish-load', () => {
     graphWindow.webContents.send('ping', result)
   })
-    graphWindow.show() // opening options window
-    // mainWindow.close() // closing login windowndow.maximize()
+
+  graphWindow.show() // opening options window
+  // mainWindow.close() // closing login windowndow.maximize()
 };
 
 
 
 // ON LOAD BUTTON CLICK
-$("#load").click(function(e){
+$("#load").click(function(e) {
   $('ul').empty(); // this will clear up the list before loading new item
   client.invoke("sheets", $("#sheet").val(), (error, res) => {
-    if(error){
+    if (error) {
       console.log(error);
       dialog.showErrorBox("Datmeer Error", "Either the Workbook ID field is empty or you haved Entered wrong workbook ID")
-    } else{
+    } else {
       console.log(res)
-      for (let i=0; i<res.length; i++){
-        $('ul').append("<li> <input type='radio' name='sheet' value='"+res[i]+"'>&nbsp; &nbsp;" +res[i]+"</li>")
+      for (let i = 0; i < res.length; i++) {
+        $('ul').append("<li> <input type='radio' name='sheet' value='" + res[i] + "'>&nbsp; &nbsp;" + res[i] + "</li>")
       }
     }
   });
@@ -53,25 +59,25 @@ $("#load").click(function(e){
 
 
 // ON NEXT BUTTON CLICK
-$("#next").click(function(event){
+$("#next").click(function(event) {
 
   client.invoke("data", $("#sheet").val(),
-                $("input[name='sheet']:checked").val(),
-                (error, res, more) => {
-        if(error){
-          console.log(error);
-          // dialog.showErrorBox("Datmeer Error", "Either the Workbook ID field is empty or you haved Entered wrong workbook ID")
-        } else{
-          result = res;  // collecting data in global variable defined at the top
-          GraphWindowCreation(); // calling method
-        }
+    $("input[name='sheet']:checked").val(),
+    (error, res, more) => {
+      if (error) {
+        console.log(error);
+        // dialog.showErrorBox("Datmeer Error", "Either the Workbook ID field is empty or you haved Entered wrong workbook ID")
+      } else {
+        result = res; // collecting data in global variable defined at the top
+        GraphWindowCreation(); // calling method
+      }
     });
 
 });
 
 
 // ON CANCEL BUTTON CLICK
-$("#cancel").click(function(){
+$("#cancel").click(function() {
   $("ul").empty();
   $("#sheet").val(" ");
 });

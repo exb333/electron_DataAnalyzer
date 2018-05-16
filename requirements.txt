@@ -1,6 +1,7 @@
 altgraph==0.15
 certifi==2018.4.16
 chardet==3.0.4
+cx-Oracle==6.3.1
 future==0.16.0
 gevent==1.3b1
 greenlet==0.4.13

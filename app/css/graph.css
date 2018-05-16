@@ -17,3 +17,51 @@
     border: 2px solid green;
     height: 320px;
 }
+
+
+#test_table{
+  border: 1px solid black;
+}
+
+#head-tab th{
+  background-color: #ffdd57;
+  font-weight: bolder;
+  test-align: center;
+}
+
+#head-tab th:nth-child(odd){
+  width:203px;
+}
+
+.inner_table::-webkit-scrollbar-track {
+    background: #ffdd57;
+}
+
+.inner_table{
+  height: 200px;
+  overflow-y: auto;
+  margin-top: -20px;
+}
+
+#inner-tab tr:hover {
+  background-color: #fff5cc;
+}
+
+#inner-tab td:hover{
+  cursor: pointer;
+}
+
+.tbl-row{
+  color:#0080ff;
+}
+
+.scatter{
+  width: 60%;
+  height: auto;
+  padding-right: 5px;
+  overflow: hidden
+}
+
+.bar{
+  width:250px;
+}

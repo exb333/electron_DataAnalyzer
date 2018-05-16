@@ -13,6 +13,8 @@
     window.$ = window.jQuery = require('jquery');
   </script>
   <script defer src="vendor/js/font_awesome_5.js"></script>
+  <script src="vendor/js/plotly.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
 <body>
@@ -53,32 +55,41 @@
   </nav>
 
   <!-- GRAPH SECTION -->
-<div class="container-fluid cont-pad">
+  <div class="container-fluid cont-pad">
 
-  <div class="columns">
-    <div class="column is-two-thirds upper">
-        <h1>Scatter</h1>
-    </div>
-    <div class="column upper">Bar</div>
-  </div>
-
-  <div class="columns">
-  <div class="column is-two-thirds lower">
     <div class="columns">
-        <div id= "test" class="column is-two-thirds">
-          Test
+      <div id="scatter" class="column is-two-thirds upper scatter">
+        <h1>Scatter</h1>
+        <!-- <div id="tester" style="width:600px;height:250px;"></div> -->
+      </div>
+      <div id="bar" class="column upper bar" ><h1>Bar</h1></div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-two-thirds lower">
+        <div class="columns">
+
+          <div id="test" class="column is-two-thirds">
+            <div class="wrap">
+                <table id="head-tab" class="table is-bordered is-striped is-hoverable is-fullwidth">
+
+                </table>
+                <div class="inner_table">
+                <table id="inner-tab" class="table is-bordered is-striped is-hoverable is-fullwidth">
+
+                </table>
+                </div>
+            </div>
+          </div>
+          <div class="column">
+            filter
+          </div>
         </div>
-        <div class="column">
-          filter
-        </div>
+      </div>
+      <div class="column lower">Categorical table</div>
+
     </div>
   </div>
-  <div class="column lower">Categorical table</div>
-
-</div>
-
-
-</div>
 
 </body>
 <script src="js/window.js" charset="utf-8"></script>
@@ -86,9 +97,12 @@
 <!-- below script of nodejs communicating with python -->
 <script type="text/javascript" src="renderer/client.js"></script>
 <script type="text/javascript" src="renderer/graph.js"></script>
+<script type="text/javascript" src="renderer/scatter-graph.js"></script>
+<script type="text/javascript" src="renderer/bar-graph.js"></script>
 
 <script type="text/javascript">
   $("#uname").focus();
 </script>
+
 
 </html>
