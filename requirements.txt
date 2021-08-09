@@ -14,7 +14,7 @@ PyInstaller==3.3.1
 pypiwin32==223
 python-dateutil==2.7.2
 pytz==2018.4
-pywin32==223
+pywin32==301
 pyzmq==17.0.0
 requests==2.18.4
 six==1.11.0
